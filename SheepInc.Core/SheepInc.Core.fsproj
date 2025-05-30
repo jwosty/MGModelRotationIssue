@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.3">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.3"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Content.mgcb"/>
+    <None Include="Content\Shaders\*.fxh"/>
+    <None Include="Content\Shaders\*.fx"/>
+    <None Include="Content\MsdfFonts\*.bhfont"/>
+    <None Include="Content\SpriteFonts\*.spritefont"/>
+    <Compile Include="CompositeDisposable.fs"/>
+    <Compile Include="Units.fs"/>
+    <Compile Include="VectorExtensions.fs"/>
+    <Compile Include="MatrixExtensions.fs"/>
+    <Compile Include="HelperFunctions.fs"/>
+    <Compile Include="Extensions.fs"/>
+    <Compile Include="Constants.fs"/>
+    <Compile Include="Model\Types.fs"/>
+    <Compile Include="GameConfig.fs"/>
+    <Compile Include="Model\Camera.fs"/>
+    <Compile Include="Model\Ufo.fs"/>
+    <Compile Include="Model\World.fs"/>
+    <Compile Include="Content.fs"/>
+    <Compile Include="Game.fs"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSharp.TypedNumerics\FSharp.TypedNumerics.fsproj"/>
+  </ItemGroup>
+</Project>

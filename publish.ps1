@@ -1,0 +1,1 @@
+dotnet publish -c Release -r win-x64 -p:PublishReadyToRun=false -p:PublishSingleFile=true -p:TieredCompilation=false --self-contained -o publish\ SheepInc.Windows\SheepInc.Windows.csproj
