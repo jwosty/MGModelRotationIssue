@@ -2,9 +2,6 @@ namespace SheepInc.Core.Model
 
 open System
 open FSharp.Data.UnitSystems.SI.UnitSymbols
-open FSharp.TypedNumerics
-open FSharp.TypedNumerics.Swizzling
-open FSharp.TypedNumerics.Operators
 open Microsoft.Xna.Framework
 open SheepInc.Core
 open SheepInc.Core.Units

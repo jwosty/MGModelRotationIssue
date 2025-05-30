@@ -1,8 +1,6 @@
 namespace SheepInc.Core
 
 open FSharp.Data.UnitSystems.SI.UnitSymbols
-open FSharp.TypedNumerics.Operators
-open FSharp.TypedNumerics
 open Microsoft.Xna.Framework
 open SheepInc.Core
 open SheepInc.Core.Units
@@ -17,7 +15,7 @@ type GameConfig = {
 
 module GameConfig =
     let heightLevelsPerTile = 5<ihu/hexWu>
-    let invHeightLevelsPerTile = 1.f / float32m heightLevelsPerTile
+    let invHeightLevelsPerTile = 1.f / float32 heightLevelsPerTile
     
     let defaultValue =
         {

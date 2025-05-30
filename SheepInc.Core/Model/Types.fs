@@ -4,8 +4,6 @@ open System
 open System.Collections.Generic
 open FSharp.Data.UnitSystems.SI.UnitSymbols
 open FSharp.Core.LanguagePrimitives
-open FSharp.TypedNumerics
-open FSharp.TypedNumerics.Operators
 open Microsoft.Xna.Framework
 open Microsoft.Xna.Framework.Graphics
 open SheepInc.Core
@@ -29,7 +27,7 @@ type Camera =
         ZoomLevel: float32
         MinZoomLevel: float32
         MaxZoomLevel: float32
-        LookPosition: Vector3f32<wu>
+        LookPosition: Vector3
     }
     with
         member this.ZoomAsIsometricScaleFactor = 2.f ** (this.ZoomLevel - 1.f)
@@ -49,6 +47,6 @@ type CameraMatrices private(cameraModel: XnaMatrix, view: XnaMatrix, projection:
         CameraMatrices(cameraModel, view, projection, vp, XnaMatrix.Invert view, XnaMatrix.Invert projection, XnaMatrix.Invert vp)
 
 
-type Ufo = { Position: Vector3f32<wu> }
+type Ufo = { Position: Vector3 }
 
 type World = { Camera: Camera; Ufo: Ufo }

@@ -1,6 +1,5 @@
 namespace SheepInc.Core.Units
 
-open FSharp.TypedNumerics.Units
 open Microsoft.FSharp.Data.UnitSystems.SI.UnitSymbols
 open System
 
@@ -8,8 +7,8 @@ open System
 type [<Measure>] px
 type [<Measure>] frame
 type [<Measure>] ms
-type [<Measure>] rad = FSharp.TypedNumerics.Units.rad
-type [<Measure>] deg = FSharp.TypedNumerics.Units.deg
+type [<Measure>] rad
+type [<Measure>] deg
 /// World units (cartesian)
 type [<Measure>] wu
 /// World units (hexagonal)

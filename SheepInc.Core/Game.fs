@@ -6,8 +6,6 @@ open Microsoft.FSharp.Data.UnitSystems.SI.UnitSymbols
 open Microsoft.Xna.Framework
 open Microsoft.Xna.Framework.Graphics
 
-open FSharp.TypedNumerics.Operators
-
 open SheepInc.Core
 open SheepInc.Core.Model
 open SheepInc.Core.Units
@@ -137,7 +135,7 @@ type SheepInc() as this =
         // ooh spooky
         do
             let visModel = content.Models.Spaceship
-            let modelMatrix = Matrix.CreateTranslation (ufo.Position.ToXnaVec<wu>())
+            let modelMatrix = Matrix.CreateTranslation ufo.Position
             GraphicsHelpers.DrawModel (visModel, modelMatrix, cameraMatrices.View, cameraMatrices.Projection)
     
     member this.DrawWorld virtualViewport (content: SheepIncContent) (world: World) =
@@ -170,7 +168,7 @@ type SheepInc() as this =
 #endif
         
         do
-        // Finally render the scene texture to the screen for real
+            // Finally render the scene texture to the screen for real
             let effect = content.PostProcessingShader
             let wvpMatrix = Matrix.Identity
             effect.Parameters["WorldViewProj"] |>? (_.SetValue(wvpMatrix))
@@ -178,7 +176,7 @@ type SheepInc() as this =
             this.GraphicsDevice.SamplerStates[1] <- SamplerState.PointWrap
             effect.Parameters["HudTexture"] |>? (_.SetValue(graphicsResources.HudRenderTarget))
             this.GraphicsDevice.SamplerStates[2] <- SamplerState.PointWrap
-            effect.Parameters["BlendFactor"] |>? (_.SetValue(float32m 0.0f))
+            effect.Parameters["BlendFactor"] |>? (_.SetValue(float32 0.0f))
             let c = Color(1.0f, 1.0f, 1.0f, 1.0f)
             effect.Parameters["DiffuseColor"] |>? (_.SetValue(c.ToVector4()))
             sb.Begin (SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, effect)

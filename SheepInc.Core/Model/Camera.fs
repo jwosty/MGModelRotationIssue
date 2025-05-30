@@ -3,10 +3,6 @@ namespace SheepInc.Core.Model
 open System
 open FSharp.Core.LanguagePrimitives
 open FSharp.Data.UnitSystems.SI.UnitSymbols
-open FSharp.TypedNumerics
-open FSharp.TypedNumerics.PreludeOperators
-open FSharp.TypedNumerics.Swizzling
-open FSharp.TypedNumerics.Operators
 open Microsoft.Xna.Framework
 open Microsoft.Xna.Framework.Graphics
 open SheepInc.Core
@@ -26,7 +22,7 @@ module Camera =
             Yaw = 45.f<deg>
             MinZoomLevel = -1.f
             MaxZoomLevel =  3.f
-            LookPosition = %(0.f<wu>, 0.f<wu>, 2.0f<wu>)
+            LookPosition = Vector3(0.f, 0.f, 2.0f)
             Mode = Isometric
         }
     
@@ -58,7 +54,7 @@ module Camera =
         Matrix.CreateTranslation (0.f, 0.f, -cameraDistance * 1.f</wu>) *
         Matrix.CreateRotationX (degToRad (camera.Pitch + 90.f<deg>) * 1.f</rad>) *
         Matrix.CreateRotationZ (degToRad camera.Yaw * 1.f</rad>) *
-        Matrix.CreateTranslation (camera.LookPosition.ToXnaVec<wu>())
+        Matrix.CreateTranslation camera.LookPosition
     
     let update (deltaTime: float<s>) isDebugView (camera: Camera) : Camera = camera
     

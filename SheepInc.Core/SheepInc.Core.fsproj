@@ -29,7 +29,4 @@
     <Compile Include="Content.fs"/>
     <Compile Include="Game.fs"/>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FSharp.TypedNumerics\FSharp.TypedNumerics.fsproj"/>
-  </ItemGroup>
 </Project>
